@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Data Buku</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingIcon="arrow-dropdown" 
+      pullingText="Pull to refresh" 
+      refreshingSpinner="circles" 
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor="let perpustakaan of perpustakaans">
+    <ion-card-header>
+      <ion-card-subtitle>jenis: {{perpustakaan.jenis}}, isbn: {{perpustakaan.isbn}}, keterangan{{perpustakaan.keterangan}}</ion-card-subtitle>
+      <ion-card-title>judul{{perpustakaan.judul}}, pengarang{{perpustakaan.pengarang}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      tahunterbit: {{perpustakaan.tahunterbit}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

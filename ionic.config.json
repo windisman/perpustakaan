@@ -1,0 +1,7 @@
+{
+  "name": "perpustakaan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
